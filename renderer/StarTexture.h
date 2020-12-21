@@ -58,7 +58,7 @@ public:
     void createTEXTURE_IOS(const char*, unsigned texture_id,bool repeat = false, bool opt = false);
 #elif (MAC && !starQt)
     void createTEXTURE_MAC(NSString *filename, unsigned texture_id,bool repeat = false, bool opt = false);
-#elif ANDROID
+#elif (ANDROID || starQt)
     void createTEXTURE_ANDROID(void* array,unsigned int width, unsigned int height, unsigned int texture_id, bool repeat = false, bool opt = false);
 #elif _WIN32
     void createTEXTURE_WINDOWS( void* array, unsigned int width, unsigned int height, unsigned int texture_id,bool repeat = false,bool _float = false, bool opt=false); // for camera

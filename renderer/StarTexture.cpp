@@ -92,7 +92,7 @@ void StarTexture::createTEXTURE_IOS(const char*filename, unsigned int texture_id
     }
 }
 
-#elif (MAC && !StarQt)
+#elif (MAC && !starQt)
 void StarTexture::createTEXTURE_MAC(NSString *filename, unsigned texture_id, bool repeat, bool opt)
 {
     CFURLRef url = (__bridge CFURLRef)[NSURL fileURLWithPath : filename];
@@ -144,7 +144,7 @@ void StarTexture::createTEXTURE_MAC(NSString *filename, unsigned texture_id, boo
     }
     free(myData);
 }
-#elif ANDROID
+#elif (ANDROID || starQt)
 void StarTexture::createTEXTURE_ANDROID(void* array, unsigned int texture_width, unsigned int texture_height, unsigned int texture_id, bool repeat, bool opt)
 {
     texture[texture_id].texture_width = texture_width;
@@ -191,7 +191,7 @@ void StarTexture::createTEXTURE_ANDROID(void* array, unsigned int texture_width,
     }
 }
 
-#elif _WIN32
+#elif (_WIN32)
 void StarTexture::createTEXTURE_WINDOWS(void* array, unsigned int width, unsigned int height, unsigned int texture_id, bool repeat,bool _float, bool opt)
 {
     texture[texture_id].texture_width = width;
@@ -384,7 +384,7 @@ void StarTexture::createTEXTURE_DATA(void* data, unsigned int camera_width, unsi
 }
 
 
-#if (MAC||_WIN32)
+#if ((MAC || _WIN32) && (!starQt))
 void StarTexture::createTEXTURE_RTF(unsigned int texture_width, unsigned int texture_height, unsigned int texture_id, unsigned int numOfMS)
 {
     texture[texture_id].texture_width = texture_width;

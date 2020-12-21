@@ -11,7 +11,7 @@
 class starengine;
 
 #ifdef __cplusplus
-//#include <memory>
+#include <memory>
 #include <algorithm>
 #endif
 
@@ -52,18 +52,20 @@ class starengine;
 #define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__) 
 #endif
 
-#if (StarQt)
-#include <QOpenGLFunctions>
+#if (starQt)
 #include <QOpenGLBuffer>
 #include <QOpenGLFramebufferObject>
-
+//#include <QOpenGLFunctions>
+#include <QOpenGLFunctions_3_3_Core>
+#include <cmath>
+#define M_PI 3.1415926535
 #endif
-// MAC
-#if (MAC && !StarQt)
+
+#if (MAC && !starQt)
 #import <OpenGL/gl3.h>
 #import <OpenGL/glext.h>
 #import <Cocoa/Cocoa.h>
-#elif _WIN32 //Windows
+#elif (_WIN32 && !starQt)
 
 #include <SDL.h>
 #include <GL/glew.h>
