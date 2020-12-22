@@ -95,7 +95,7 @@ void StarFBO::createFBO(bool depth, bool stencil, unsigned int width, unsigned i
 			glGenRenderbuffers(1, &rboDepth[object_id]);
 			glBindRenderbuffer(GL_RENDERBUFFER, rboDepth[object_id]);
 #if (ANDROID || starQt)
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, width, height);
+            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, width, height);
 #elif IOS
 			glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, width, height);
 #else
@@ -261,7 +261,7 @@ void StarFBO::unbindRBO()
 void StarFBO::resizeRBO(unsigned int width, unsigned int height)
 {
 #if (ANDROID || starQt)
-	glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8_OES, width, height);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8, width, height);
 #elif IOS
 	glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8_OES, width, height);
 #else
@@ -270,7 +270,7 @@ void StarFBO::resizeRBO(unsigned int width, unsigned int height)
 
 	// maybe an error if has not depth
 #if (ANDROID || starQt)
-	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, width, height);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, width, height);
 #elif IOS
 	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, width, height);
 #else
